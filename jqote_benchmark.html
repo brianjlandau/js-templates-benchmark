@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <title>JS Template Benchmarks: jQote</title>
+  <link rel="stylesheet" href="styles.css" type="text/css" media="screen" charset="utf-8" />
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script>
+  <script src="jquery.benchmark.js" type="text/javascript" charset="utf-8"></script>
+  <script src="jquery.jqote.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <div id="report">
+    <h1>JS Template Benchmarks: jQote</h1>
+    
+    <div id="results">
+      <ul>
+        <li>Simple Test: <span class="stat" id="simple_test"></span></li>
+        <li>Loop Test: <span class="stat" id="loop_test"></span></li>
+      </ul>
+    </div>
+  </div>
+  
+  <div id="output"></div>
+  
+  <script type="text/x-jqote-template" id="info-tmpl">
+  <![CDATA[
+    <div class="test">
+      <h2>This is a test of <%= this.name %></h2>
+      <p>The homepage is <a href="<%= this.url %>"><%= this.url %></a>.</p>
+      <p>The sources is: <%= this.source %></p>
+    </div>
+  ]]>
+  </script>
+  
+  <script type="text/x-jqote-template" id="comment-tmpl">
+    <div class="comments">
+      <h3><%= this.header %></h3>
+      <ul>
+      <% $.each(this.comments, function(i, comment){ %>
+        <li class="comment">
+          <h5><%= comment.name %></h5>
+          <p><%= comment.body %></p>
+        </li>
+      <% }); %>
+      </ul>
+    </div>
+  </script>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var output = $('#output');
+      
+      var test_simple = function(){
+        $('#info-tmpl').jqote({
+          name: 'jQote', 
+          url: 'http://aefxx.com/jquery-plugins/jqote/',
+          source: 'http://aefxx.com/files/jquery.jqote.js'
+        }).appendTo(output);
+      };
+      
+      var loop_test = function(){
+        var data = {
+          header: "My Post Comments",
+          comments: [
+            {name: "Joe", body: "Thanks for this post!"},
+            {name: "Sam", body: "Thanks for this post!"},
+            {name: "Heather", body: "Thanks for this post!"},
+            {name: "Kathy", body: "Thanks for this post!"},
+            {name: "George", body: "Thanks for this post!"}
+          ]
+        };
+        $('#comment-tmpl').jqote(data).appendTo(output);
+      };
+      
+      $.benchmark(1000, '#simple_test', test_simple);
+      $.benchmark(1000, '#loop_test', loop_test);
+    });
+  </script>
+</body>
+</html>

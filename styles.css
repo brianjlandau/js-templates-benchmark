@@ -1,0 +1,108 @@
+/* @group Reset */
+
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, code,
+del, dfn, em, img, q, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+
+body { 
+  line-height: 1.5; 
+}
+
+/* Tables still need 'cellspacing="0"' in the markup. */
+table { border-collapse: separate; border-spacing: 0; }
+caption, th, td { text-align: left; font-weight: normal; }
+table, td, th { vertical-align: middle; }
+
+/* Remove possible quote marks (") from <q>, <blockquote>. */
+blockquote:before, blockquote:after, q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+
+/* Remove annoying border on linked images. */
+a img { border: none; }
+
+/* @end */
+
+body {
+  font-family: Arial, Helvetica, Sans-Serif;
+  font-size: 18px;
+  color: #333;
+}
+
+#report {
+  background-color: #bfe9ff;
+  padding: 10px 20px;
+  margin: 25px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+#report ul {
+  list-style-type: none;
+  margin: 0px 0px 10px 30px;
+}
+
+#report ul li .stat {
+  font-weight: bold;
+}
+
+h1 {
+  margin: 10px 0px;
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #4c4339;
+}
+
+#output {
+  margin: 20px;
+  font-size: 0.9em;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 1.4em;
+  font-weight: bold;
+}
+
+h5 {
+  font-size: 1.1em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.test {
+  margin: 10px 0px;
+  padding: 5px;
+  border: 1px solid #b4b4b4;
+}
+
+.comments {
+  margin: 10px 0px;
+  padding: 6px;
+}
+
+.comments ul {
+  list-style-type: none;
+  margin: 5px 15px;
+}
+
+li.comment {
+  list-style-type: none;
+}
+
