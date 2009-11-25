@@ -48,8 +48,9 @@
   <script type="text/javascript">
     $(document).ready(function(){
       var output = $('#output');
+      $.benchmarks = {};
       
-      var test_simple = function(){
+      $.benchmarks.test_simple = function(){
         var html = $('#info-tmpl').microtmpl({
           name: 'JavaScript Micro-Templating', 
           url: 'http://ejohn.org/blog/javascript-micro-templating/',
@@ -58,7 +59,7 @@
         output.append(html);
       };
       
-      var loop_test = function(){
+      $.benchmarks.loop_test = function(){
         var data = {
           header: "My Post Comments",
           comments: [
@@ -75,7 +76,7 @@
       
       var compiled_tmpl = $('#info-tmpl').microtmpl();
       
-      var compiled_test = function(){
+      $.benchmarks.compiled_test = function(){
         var html = compiled_tmpl({
           name: 'JavaScript Micro-Templating', 
           url: 'http://ejohn.org/blog/javascript-micro-templating/',
@@ -84,9 +85,9 @@
         output.append(html);
       };
       
-      $.benchmark(1000, '#simple_test', test_simple);
-      $.benchmark(1000, '#loop_test', loop_test);
-      $.benchmark(1000, '#compiled_test', compiled_test);
+      // $.benchmark(1000, '#simple_test', $.benchmarks.test_simple);
+      // $.benchmark(1000, '#loop_test', $.benchmarks.loop_test);
+      // $.benchmark(1000, '#compiled_test', $.benchmarks.compiled_test);
     });
   </script>
 </body>

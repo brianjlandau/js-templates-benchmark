@@ -1,3 +1,5 @@
+// based on methodology developed by PPK:
+// http://www.quirksmode.org/blog/archives/2009/08/when_to_read_ou.html
 (function($){
 $.benchmark = function(times, result_selector, func){
 	var startTime = new Date().getTime();

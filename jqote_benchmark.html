@@ -49,8 +49,9 @@
   <script type="text/javascript">
     $(document).ready(function(){
       var output = $('#output');
+	  $.benchmarks = {};
       
-      var test_simple = function(){
+      $.benchmarks.test_simple = function(){
         $('#info-tmpl').jqote({
           name: 'jQote', 
           url: 'http://aefxx.com/jquery-plugins/jqote/',
@@ -58,7 +59,7 @@
         }).appendTo(output);
       };
       
-      var loop_test = function(){
+      $.benchmarks.loop_test = function(){
         var data = {
           header: "My Post Comments",
           comments: [
@@ -72,8 +73,8 @@
         $('#comment-tmpl').jqote(data).appendTo(output);
       };
       
-      $.benchmark(1000, '#simple_test', test_simple);
-      $.benchmark(1000, '#loop_test', loop_test);
+      // $.benchmark(1000, '#simple_test', $.benchmarks.test_simple);
+      // $.benchmark(1000, '#loop_test', $.benchmarks.loop_test);
     });
   </script>
 </body>

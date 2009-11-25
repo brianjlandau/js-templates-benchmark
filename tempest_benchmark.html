@@ -26,8 +26,9 @@
   <script type="text/javascript">
     $(document).ready(function(){
       var output = $('#output');
+      $.benchmarks = {};
       
-      var test_simple = function(){
+      $.benchmarks.test_simple = function(){
          $.tempest("info", '<div class="test"><h2>This is a test of {{name}}</h2><p>The homepage is <a href="{{url}}">{{url}}</a>.</p><p>The sources is: {{source}}</p></div>');
         output.append($.tempest("info", {
           name: 'Tempest', 
@@ -36,7 +37,7 @@
         }));
       };
       
-      var loop_test = function(){
+      $.benchmarks.loop_test = function(){
         $.tempest('comment', '<li class="comment"><h5>{{name}}</h5><p>{{body}}</p></li>');
         $('#output').append('<div class="comments"><h3>Comments</h3><ul></ul></div>');
         var ul = $('#output .comments:last ul:last');
@@ -53,7 +54,7 @@
       
        $.tempest("compiled", '<div class="test"><h2>This is a test of {{name}}</h2><p>The homepage is <a href="{{url}}">{{url}}</a>.</p><p>The sources is: {{source}}</p></div>');
        
-       var compiled_test = function(){
+       $.benchmarks.compiled_test = function(){
          output.append($.tempest("compiled", {
            name: 'Tempest', 
            url: 'http://github.com/fitzgen/tempest/',
@@ -61,9 +62,9 @@
          }));
        };
       
-      $.benchmark(1000, '#simple_test', test_simple);
-      $.benchmark(1000, '#loop_test', loop_test);
-      $.benchmark(1000, '#compiled_test', compiled_test);
+      // $.benchmark(1000, '#simple_test', $.benchmarks.test_simple);
+      // $.benchmark(1000, '#loop_test', $.benchmarks.loop_test);
+      // $.benchmark(1000, '#compiled_test', $.benchmarks.compiled_test);
     });
   </script>
 </body>

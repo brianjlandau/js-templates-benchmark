@@ -47,8 +47,9 @@
   <script type="text/javascript">
     $(document).ready(function(){
       var output = $('#output');
+      $.benchmarks = {};
       
-      var test_simple = function(){
+      $.benchmarks.test_simple = function(){
         var html = $.templates.info({
           name: 'jquery_templates', 
           url: 'http://github.com/wayneeseguin/jquery_templates/',
@@ -57,7 +58,7 @@
         output.append(html);
       };
       
-      var loop_test = function(){
+      $.benchmarks.loop_test = function(){
         var data = {
           header: "My Post Comments",
           comments: [
@@ -72,8 +73,8 @@
         output.append(html);
       };
       
-      $.benchmark(1000, '#simple_test', test_simple);
-      $.benchmark(1000, '#loop_test', loop_test);
+      // $.benchmark(1000, '#simple_test', $.benchmarks.test_simple);
+      // $.benchmark(1000, '#loop_test', $.benchmarks.loop_test);
     });
   </script>
 </body>

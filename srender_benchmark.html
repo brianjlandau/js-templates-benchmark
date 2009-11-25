@@ -25,8 +25,9 @@
   <script type="text/javascript">
     $(document).ready(function(){
       var output_div = $('#output');
+      $.benchmarks = {};
       
-      var test_simple = function(){
+      $.benchmarks.test_simple = function(){
         var info_tmpl = '<div class="test"><h2>This is a test of <%= name %></h2><p>The homepage is <a href="<%= url %>"><%= url %></a>.</p><p>The sources is: <%= source %></p></div>';
         output_div.append($.srender(info_tmpl, {
           name: 'Srender', 
@@ -35,7 +36,7 @@
         }));
       };
       
-      var loop_test = function(){
+      $.benchmarks.loop_test = function(){
         var comment_tmp = '<div class="comments"><h3><%= header %></h3><ul><% $.each(comments, function(i, comment){ %><li class="comment"><h5><%= comment.name %></h5><p><%= comment.body %></p></li><% }); %></ul></div>';
         
         var data = {
@@ -52,8 +53,8 @@
         output_div.append($.srender(comment_tmp, data));
       };
       
-      $.benchmark(1000, '#simple_test', test_simple);
-      $.benchmark(1000, '#loop_test', loop_test);
+      // $.benchmark(1000, '#simple_test', $.benchmarks.test_simple);
+      // $.benchmark(1000, '#loop_test', $.benchmarks.loop_test);
     });
   </script>
 </body>
