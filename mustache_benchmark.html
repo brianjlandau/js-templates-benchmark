@@ -25,7 +25,7 @@
   <script type="text/javascript">
     $(document).ready(function(){
       var output = $('#output');
-	  $.benchmarks = {};
+	    $.benchmarks = {};
       
       $.benchmarks.test_simple = function(){
         var story_tmp = '<div class="test"><h2>This is a test of {{name}}</h2><p>The homepage is <a href="{{url}}">{{url}}</a>.</p><p>The sources is: {{source}}</p></div>';
@@ -52,6 +52,7 @@
         output.append($.mustache(comment_tmp, comment_view));
       };
       
+      // use these lines to run the benchmark tests in your browsers JS console
       // $.benchmark(1000, '#simple_test', $.benchmarks.test_simple);
       // $.benchmark(1000, '#loop_test', $.benchmarks.loop_test);
     });

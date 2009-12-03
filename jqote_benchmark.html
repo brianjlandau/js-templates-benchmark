@@ -49,7 +49,7 @@
   <script type="text/javascript">
     $(document).ready(function(){
       var output = $('#output');
-	  $.benchmarks = {};
+	    $.benchmarks = {};
       
       $.benchmarks.test_simple = function(){
         $('#info-tmpl').jqote({
@@ -73,6 +73,7 @@
         $('#comment-tmpl').jqote(data).appendTo(output);
       };
       
+      // use these lines to run the benchmark tests in your browsers JS console
       // $.benchmark(1000, '#simple_test', $.benchmarks.test_simple);
       // $.benchmark(1000, '#loop_test', $.benchmarks.loop_test);
     });
